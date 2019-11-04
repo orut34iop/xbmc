@@ -1,0 +1,6 @@
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	C2001	newline in constant	kodi-test	c:\users\wiz\source\repos\orut34iop\xbmc\xbmc\utils\test\teststringutils.cpp	336	
+
+
+
+解决方法：报错的文件，选择save as decode，在弹出的选项中选择新的编码方式为：UNICODE codepage 1200 ，点击确定，问题就解决了。

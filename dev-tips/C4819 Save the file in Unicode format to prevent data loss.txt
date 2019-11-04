@@ -1,0 +1,17 @@
+编译VC++程序的时候出现如下提示警告：
+
+warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+
+因为只是一个warning，不影响正常编译，所以并没有引起大家多大的关注。我一开始的时候也是如此。但是后来出现的次数多了，发现这个警告和在程序Debug的时候
+无法停在断点，刷刷刷就过去了根本无法进行Debug。而罪魁祸首就是这个warning，改正了这个warning就能进行Debug了。
+
+下面讲述我是怎么消除这个警告的。
+
+这个警告的意思是：在该文件中有一个或多个字符不是Unicode字符！要求把这个字符变成Unicode字符。
+
+难题：在编译信息里并没有提示是哪个字符，或者是在哪一行里出现的该字符。查找起来非常的难，甚至是不可能的任务！
+
+我在网络上找了好多资料都没有找到解决方法。因为大家都不注意这个不影响编译的警告。后来在一个国外的网站上找到了解决的方法。很简单，这个方法根本不需要知道具体是哪个字符在捣鬼！
+
+解决方法：打开出现warning的文件，Ctrl+A全选，然后在文件菜单：file->advanced save options ，在弹出的选项中选择新的编码方式为：UNICODE codepage 1200 ，点击确定，问题就解决了。
+
